@@ -72,6 +72,10 @@ exports.deleteSong = (req,res,next) => {
         return Song.findByIdAndRemove(songId);
     }).then(res =>{
         console.log(res);
+        res.json({
+            message : 'Song Deleted',
+            song : result
+        });
     })
     .catch(err => {
         console.log(err);
